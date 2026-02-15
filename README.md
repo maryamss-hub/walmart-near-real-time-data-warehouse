@@ -2,20 +2,22 @@
 
 ## Overview
 
-This project implements a **near-real-time data warehouse for Walmart** to analyze customer purchasing behavior and generate business insights quickly. The system processes streaming transaction data and joins it with master data efficiently using the **HYBRIDJOIN algorithm**.
+This project builds a **near-real-time data warehouse for Walmart** to analyze customer purchasing behavior efficiently.
 
-The project demonstrates real-world data warehousing concepts including **star schema design, OLAP queries, dimensional modeling, and stream processing**.
+It uses the **HYBRIDJOIN algorithm implemented in Python** to join streaming transaction data with master data and stores it in a **MySQL star schema** for fast analytical queries.
+
+The system processes **550,000+ transactions in minutes**, enabling real-time business intelligence and OLAP analysis.
 
 ---
 
 ## Key Features
 
-* Processed **550,000+ transactions**
-* Achieved **near-real-time performance**
-* Implemented **HYBRIDJOIN algorithm in Python**
-* Designed **Star Schema** with fact and dimension tables
-* Built and executed **20 OLAP analytical queries**
-* Optimized data loading and query performance
+* Near-real-time ETL pipeline
+* HYBRIDJOIN algorithm implementation
+* Star schema data warehouse design
+* 5 Dimension tables and 1 Fact table
+* 20 OLAP analytical queries
+* Processes 550,000+ records efficiently
 
 ---
 
@@ -25,24 +27,87 @@ The project demonstrates real-world data warehousing concepts including **star s
 * MySQL
 * SQL
 * Pandas
-* Data Warehousing Concepts
-* OLAP Queries
+* Data Warehousing
+* ETL Processing
+
+---
+
+## Project Structure
+
+```
+create_dw.sql        # Database schema
+hybrid_join.py      # ETL pipeline using HYBRIDJOIN
+queries_dw.sql      # OLAP analytical queries
+Project_Report.pdf  # Detailed documentation
+README.md
+```
+
+---
+
+## Dataset Files Required
+
+* customer_master_data.csv
+* product_master_data.csv
+* transactional_data.csv
+
+---
+
+## Installation
+
+Install required packages:
+
+```
+pip install pandas mysql-connector-python
+```
+
+Requirements:
+
+* Python 3.8+
+* MySQL 8.0+
+
+---
+
+## How to Run
+
+### Step 1: Create Database
+
+Run in MySQL:
+
+```
+create_dw.sql
+```
+
+---
+
+### Step 2: Run ETL Pipeline
+
+```
+python hybrid_join.py
+```
+
+This loads all transaction data into the warehouse.
+
+---
+
+### Step 3: Run Analytical Queries
+
+Execute:
+
+```
+queries_dw.sql
+```
 
 ---
 
 ## Data Warehouse Schema
 
-### Fact Table
+Star Schema:
 
-**FactSales**
+Fact Table:
 
-* Order ID
-* Quantity
-* Unit Price
-* Total Amount
-* Foreign Keys to all dimensions
+* FactSales
 
-### Dimension Tables
+Dimension Tables:
 
 * DimCustomer
 * DimProduct
@@ -50,91 +115,24 @@ The project demonstrates real-world data warehousing concepts including **star s
 * DimSupplier
 * DimDate
 
-Star schema was used to improve query performance and simplify analysis.
-
----
-
-## HYBRIDJOIN Algorithm
-
-HYBRIDJOIN enables efficient joining of:
-
-* Streaming transaction data
-* Disk-based master data
-
-### Components Used
-
-* Hash Table
-* Queue
-* Stream Buffer
-* Disk Buffer
-
-This approach avoids memory overflow and supports continuous data processing.
-
----
-
-## OLAP Analysis
-
-Implemented 20 analytical queries including:
-
-* Top revenue generating products
-* Customer demographic analysis
-* Monthly and quarterly sales trends
-* Seasonal analysis
-* Revenue growth analysis
-* Store and supplier performance
-
-These queries demonstrate:
-
-* Drill-down
-* Roll-up
-* Slicing and dicing
-* Trend analysis
-
 ---
 
 ## Performance
 
-* Total transactions processed: **550,068**
-* Processing time: **~2 minutes**
-* Processing speed: **278,000+ records per second**
+* Transactions processed: 550,068
+* Processing time: ~2 minutes
+* High-performance real-time processing
 
 ---
 
 ## Skills Demonstrated
 
 * Data Warehousing
+* ETL Development
+* SQL
+* Python
 * Dimensional Modeling
-* Star Schema Design
-* SQL Optimization
-* Stream Processing
-* Python Data Processing
-* Business Intelligence Concepts
-
----
-
-## Project Structure
-
-```
-project/
-│
-├── data/
-├── scripts/
-├── sql/
-├── results/
-├── README.md
-└── report.pdf
-```
-
----
-
-## Real-World Applications
-
-This system can be used for:
-
-* Retail sales analysis
-* Business intelligence dashboards
-* Customer behavior analysis
-* Revenue forecasting
+* OLAP Queries
 
 ---
 
@@ -142,9 +140,3 @@ This system can be used for:
 
 Maryam Khalid
 Data Science Student
-
----
-
-## License
-
-This project is licensed under the MIT License.
