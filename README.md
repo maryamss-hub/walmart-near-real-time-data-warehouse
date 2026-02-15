@@ -139,4 +139,3 @@ Dimension Tables:
 ## Author
 
 Maryam Khalid
-Data Science Student
